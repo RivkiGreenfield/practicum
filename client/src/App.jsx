@@ -17,6 +17,13 @@ function App() {
       ) : (
         <p>טוען...</p>
       )}
+      <div className="flex items-center justify-center bg-gray-100 p-8">
+  <div className="bg-white rounded-xl shadow-lg p-8">
+    <h1 className="text-3xl font-bold text-purple-600">
+      טיילווינד עובד! 🎉
+    </h1>
+  </div>
+</div>
     </div>
   )
 }
