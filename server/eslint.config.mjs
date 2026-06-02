@@ -1,27 +1,34 @@
-// eslint.config.mjs
 export default [
   {
-    // כללי ל־JavaScript ב־Node
     files: ["**/*.js"],
 
     languageOptions: {
-      parserOptions: {
-        ecmaVersion: "latest", // גרסת JS עדכנית
-        sourceType: "module",  // מאפשר import/export
+      ecmaVersion: "latest",
+      sourceType: "module",
+      globals: {
+        process: "readonly",
+        console: "readonly",
+        require: "readonly",
+        module: "readonly",
+        __dirname: "readonly",
       },
     },
 
-    env: {
-      node: true,
-      es2021: true,
-    },
-
-    // כללים בסיסיים מומלצים
     rules: {
-      "no-unused-vars": ["error", { "argsIgnorePattern": "^_" }], // _ignored args
-      "no-console": "off", // אפשר console.log בשרת
-      "semi": ["error", "always"], // סמי-קולון חובה
-      "quotes": ["error", "double"], // ציטוטים כפולים
+      // 🔴 איכות קוד (חשובים)
+      "no-unused-vars": ["error", { argsIgnorePattern: "^_" }],
+      "no-undef": "error",
+      "no-console": "off",
+
+      // 🟡 שגיאות לוגיות (כן חשוב להשאיר)
+      "no-eval": "error",
+      "no-throw-literal": "error",
+
+      // 🟢 סטייל (מרוכך כדי שלא יציק)
+      "quotes": "off",
+      "semi": "off",
+      "comma-dangle": "off",
+      "indent": "off",
     },
   },
 ];
