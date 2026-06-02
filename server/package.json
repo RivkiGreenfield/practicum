@@ -16,5 +16,10 @@
     "express": "^5.2.1",
     "express-rate-limit": "^8.5.2",
     "pg": "^8.21.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.4.1",
+    "globals": "^17.6.0"
   }
 }

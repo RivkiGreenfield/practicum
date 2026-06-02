@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const { Pool } = require('pg')
 const helmet = require('helmet')
+const requestLogger = require('./middleware/requestLogger')
+const errorHandler = require('./middleware/errorMiddleware')
 require('dotenv').config()
 
 const app = express()
@@ -12,7 +14,7 @@ const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
 })
-
+app.use(requestLogger)
 app.get('/api/health', async (req, res) => {
   try {
     await pool.query('SELECT 1')
@@ -29,6 +31,7 @@ app.get('/api/test-db', async (req, res) => {
     res.status(500).json({ status: 'error', message: err.message })
   }
 })
+app.use(errorHandler)
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`)

@@ -8,7 +8,7 @@ const statusMessages = {
   500: 'שגיאת צד סרבר'
 };
 
-function errorHandler(err, req, res, next) {
+function errorHandler(err, req, res, _next) {
   const now = new Date();
   const status = err.status || 500;
   const code = err.code || status;
@@ -18,10 +18,6 @@ function errorHandler(err, req, res, next) {
   const log = `[${now.toLocaleString('he-IL', { hour12: false })}] ${req.method} ${req.originalUrl} - ${status} - ${message}\n`;
   writeLog(log, 'error');
 
-  res.status(status).json({
-    סטטוס: "שגיאה",
-    הודעה: message,
-    קוד: code
-  });
+  res.status(status).json({ status: "error", message, code })
 }
 module.exports = errorHandler;
