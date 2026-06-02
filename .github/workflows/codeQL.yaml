@@ -1,39 +1,39 @@
-name: CodeQL
+# name: CodeQL
 
-on:
-  pull_request:
-    branches:
-      - main
+# on:
+#   pull_request:
+#     branches:
+#       - main
 
-  push:
-    branches:
-      - main
-      - errors-middleware
+#   push:
+#     branches:
+#       - main
+#       - errors-middleware
 
-jobs:
-  analyze:
-    name: Analyze
+# jobs:
+#   analyze:
+#     name: Analyze
 
-    runs-on: ubuntu-latest
+#     runs-on: ubuntu-latest
 
-    permissions:
-      actions: read
-      contents: read
-      security-events: write
+#     permissions:
+#       actions: read
+#       contents: read
+#       security-events: write
 
-    strategy:
-      fail-fast: false
-      matrix:
-        language:
-          - javascript
+#     strategy:
+#       fail-fast: false
+#       matrix:
+#         language:
+#           - javascript
 
-    steps:
-      - uses: actions/checkout@v4
+#     steps:
+#       - uses: actions/checkout@v4
 
-      - uses: github/codeql-action/init@v3
-        with:
-          languages: ${{ matrix.language }}
+#       - uses: github/codeql-action/init@v3
+#         with:
+#           languages: ${{ matrix.language }}
 
-      - uses: github/codeql-action/autobuild@v3
+#       - uses: github/codeql-action/autobuild@v3
 
-      - uses: github/codeql-action/analyze@v3
+#       - uses: github/codeql-action/analyze@v3
