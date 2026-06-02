@@ -1,12 +1,13 @@
 const express = require('express')
 const cors = require('cors')
 const { Pool } = require('pg')
+const helmet = require('helmet')
 require('dotenv').config()
 
 const app = express()
 app.use(cors())
 app.use(express.json())
-
+app.use(helmet())
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
   ssl: { rejectUnauthorized: false }
