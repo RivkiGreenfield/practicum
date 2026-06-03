@@ -1,5 +1,4 @@
 // ErrorMessage.jsx
-import React from 'react';
 
 function ErrorMessage({ message, code }) {
   if (!message) return null;

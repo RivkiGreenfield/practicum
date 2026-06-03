@@ -3,3 +3,5 @@ import ErrorMessage from "../components/ui/ErrorMessage";
 async function catchErrors(err) {
     return <ErrorMessage message={err.message} code={err.code} />;
 }
+//מיועד למחיקה
+catchErrors(new Error("Sample error"));
