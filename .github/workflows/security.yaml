@@ -1,39 +1,39 @@
-# name: Security Pipeline
+name: Security Pipeline
 
-# on:
-#   pull_request:
-#     branches:
-#       - main
+on:
+  pull_request:
+    branches:
+      - main
 
-#   push:
-#     branches:
-#       - main
-#       - errors-middleware
+  push:
+    branches:
+      - main
+      - errors-middleware
 
-# jobs:
-#   security:
-#     runs-on: ubuntu-latest
+jobs:
+  security:
+    runs-on: ubuntu-latest
 
-#     steps:
-#       - name: Checkout
-#         uses: actions/checkout@v4
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-#       - name: Setup Node
-#         uses: actions/setup-node@v4
-#         with:
-#           node-version: 22
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
 
-#       - name: Install
-#         run: npm ci
+      - name: Install
+        run: npm ci
 
-#       - name: NPM Audit
-#         run: |
-#           npm audit --audit-level=high
+      - name: NPM Audit
+        run: |
+          npm audit --audit-level=high
 
-#       - name: ESLint
-#         run: |
-#           npm run lint
+      - name: ESLint
+        run: |
+          npm run lint
 
-#       - name: Run Tests
-#         run: |
-#           npm test -- --runInBand
+      - name: Run Tests
+        run: |
+          npm test -- --runInBand
