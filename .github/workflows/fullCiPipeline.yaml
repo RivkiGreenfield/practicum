@@ -118,9 +118,8 @@ jobs:
       - name: Lint
         run: npm run lint
 
-      # הפעלה כאשר יהיו בדיקות Client
-      # - name: Test
-      #   run: npm test
+      - name: Test
+        run: npm test
 
   server:
     name: Server CI & Security
