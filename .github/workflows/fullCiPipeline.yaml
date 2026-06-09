@@ -92,7 +92,7 @@ on:
     branches: [main]
 
   push:
-    branches: [main, errors-middleware]
+    branches: [main, errors-middleware, try]
 
 jobs:
   client:
