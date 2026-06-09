@@ -9,4 +9,6 @@ function writeLog(message, type = 'request') {
   fs.appendFile(file, message, (err) => { if(err) console.error(err) })
 }
 
+
+
 module.exports = writeLog;
